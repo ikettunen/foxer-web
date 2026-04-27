@@ -9,7 +9,6 @@ function App() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // Hardcoded credentials for static demo
     if (username === 'admin' && password === 'foxer2024') {
       setIsLoggedIn(true);
       setError('');
@@ -21,20 +20,23 @@ function App() {
   if (!isLoggedIn) {
     return (
       <div className="login-container">
-        <h2>Foxer WebApp Login</h2>
+        <div style={{marginBottom: '20px', textAlign: 'center'}}>
+          <img src="/foxer-web/logo.webp" alt="Logo" style={{width: '80px', borderRadius: '12px'}} />
+          <h2 style={{fontWeight: 800, marginTop: '10px'}}>Foxer WebApp</h2>
+        </div>
         <form onSubmit={handleLogin} className="login-form">
-          <div>
-            <label>Username: </label>
+          <div style={{display: 'flex', flexDirection: 'column', gap: '5px'}}>
+            <label style={{fontSize: '0.9rem', fontWeight: 600, color: '#374151'}}>Username</label>
             <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
           </div>
-          <div>
-            <label>Password: </label>
+          <div style={{display: 'flex', flexDirection: 'column', gap: '5px'}}>
+            <label style={{fontSize: '0.9rem', fontWeight: 600, color: '#374151'}}>Password</label>
             <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
           </div>
-          <button type="submit">Log In</button>
-          {error && <p style={{color: 'red'}}>{error}</p>}
+          <button type="submit" style={{marginTop: '10px'}}>Kirjaudu sisään</button>
+          {error && <p style={{color: '#dc2626', fontSize: '0.9rem', textAlign: 'center', margin: 0}}>{error}</p>}
         </form>
-        <p><em>Hint: admin / foxer2024</em></p>
+        <p style={{color: '#6b7280', fontSize: '0.8rem', marginTop: '20px'}}><em>Hint: admin / foxer2024</em></p>
       </div>
     );
   }
@@ -42,21 +44,25 @@ function App() {
   return (
     <div className="dashboard">
       <header className="navbar">
-        <h1>Foxer Course Manager</h1>
-        <button onClick={() => setIsLoggedIn(false)}>Log Out</button>
+        <div className="navbar-brand">
+          <img src="/foxer-web/logo.webp" alt="Logo" />
+          <h1>Foxer Paragliding</h1>
+        </div>
+        <button className="navbar-logout" onClick={() => setIsLoggedIn(false)}>Kirjaudu ulos</button>
       </header>
       <div className="content">
         <aside className="sidebar">
           <ul>
-            <li>Dashboard</li>
-            <li>Courses</li>
-            <li>Users</li>
-            <li>Settings</li>
+            <li style={{backgroundColor: '#f3f4f6', color: '#000'}}>Dashboard</li>
+            <li>Kurssit</li>
+            <li>Tuotteet</li>
+            <li>Käyttäjät</li>
+            <li>Asetukset</li>
           </ul>
         </aside>
         <main className="main-panel">
-          <h2>Welcome to the Admin Dashboard</h2>
-          <p>This is the static demo inspired by Coursera's UI/UX. The web subagent can start building out the course management components here.</p>
+          <h2>Tervetuloa hallintapaneeliin</h2>
+          <p style={{color: '#4b5563'}}>Tämä on Coursera-henkinen käyttöliittymä, joka käyttää Varjoliitokaupan musta-valkoista brändäystä. Täältä voidaan myöhemmin hallita varjoliitokursseja ja kaupan tuotteita.</p>
         </main>
       </div>
     </div>

@@ -12,6 +12,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "playwright": "^1.59.1",
     "react": "^19.2.5",
     "react-dom": "^19.2.5"
   },
