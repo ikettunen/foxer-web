@@ -1,11 +1,19 @@
 import { useState } from 'react'
 import './App.css'
+import CoursePage from './pages/CoursePage'
+import DayPage from './pages/DayPage'
+import ReadingPage from './pages/ReadingPage'
+import QuizPage from './pages/QuizPage'
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+
+  // Navigation state: { view: 'courses'|'days'|'reading'|'quiz', courseId, dayNumber }
+  const [nav, setNav] = useState({ view: 'courses' });
+  const [activeSection, setActiveSection] = useState('Kurssit');
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -36,10 +44,70 @@ function App() {
           <button type="submit" style={{marginTop: '10px'}}>Kirjaudu sisään</button>
           {error && <p style={{color: '#dc2626', fontSize: '0.9rem', textAlign: 'center', margin: 0}}>{error}</p>}
         </form>
-        <p style={{color: '#6b7280', fontSize: '0.8rem', marginTop: '20px'}}><em>Hint: admin / foxer2024</em></p>
+        <p style={{color: '#6b7280', fontSize: '0.8rem', marginTop: '20px'}}></p>
       </div>
     );
   }
+
+  const sidebarItems = ['Dashboard', 'Kurssit', 'Tuotteet', 'Käyttäjät', 'Asetukset'];
+
+  const handleSidebarClick = (item) => {
+    setActiveSection(item);
+    if (item === 'Kurssit') setNav({ view: 'courses' });
+    else setNav({ view: 'other' });
+  };
+
+  const renderMain = () => {
+    if (activeSection !== 'Kurssit') {
+      return (
+        <main className="main-panel">
+          <h2>Tervetuloa hallintapaneeliin</h2>
+          <p style={{color: '#4b5563'}}>Tämä on Coursera-henkinen käyttöliittymä, joka käyttää Varjoliitokaupan musta-valkoista brändäystä. Täältä voidaan myöhemmin hallita varjoliitokursseja ja kaupan tuotteita.</p>
+        </main>
+      );
+    }
+
+    switch (nav.view) {
+      case 'courses':
+        return (
+          <main className="main-panel">
+            <CoursePage onSelectCourse={(courseId) => setNav({ view: 'days', courseId })} />
+          </main>
+        );
+      case 'days':
+        return (
+          <main className="main-panel">
+            <DayPage
+              courseId={nav.courseId}
+              onSelectDay={(dayNumber) => setNav({ view: 'reading', courseId: nav.courseId, dayNumber })}
+              onBack={() => setNav({ view: 'courses' })}
+            />
+          </main>
+        );
+      case 'reading':
+        return (
+          <main className="main-panel">
+            <ReadingPage
+              dayNumber={nav.dayNumber}
+              onBack={() => setNav({ view: 'days', courseId: nav.courseId })}
+              onStartQuiz={() => setNav({ view: 'quiz', courseId: nav.courseId, dayNumber: nav.dayNumber })}
+            />
+          </main>
+        );
+      case 'quiz':
+        return (
+          <main className="main-panel">
+            <QuizPage
+              dayNumber={nav.dayNumber}
+              onBack={() => setNav({ view: 'reading', courseId: nav.courseId, dayNumber: nav.dayNumber })}
+              onFinish={() => setNav({ view: 'days', courseId: nav.courseId })}
+            />
+          </main>
+        );
+      default:
+        return null;
+    }
+  };
 
   return (
     <div className="dashboard">
@@ -53,20 +121,21 @@ function App() {
       <div className="content">
         <aside className="sidebar">
           <ul>
-            <li style={{backgroundColor: '#f3f4f6', color: '#000'}}>Dashboard</li>
-            <li>Kurssit</li>
-            <li>Tuotteet</li>
-            <li>Käyttäjät</li>
-            <li>Asetukset</li>
+            {sidebarItems.map(item => (
+              <li
+                key={item}
+                style={activeSection === item ? {backgroundColor: '#f3f4f6', color: '#000'} : {}}
+                onClick={() => handleSidebarClick(item)}
+              >
+                {item}
+              </li>
+            ))}
           </ul>
         </aside>
-        <main className="main-panel">
-          <h2>Tervetuloa hallintapaneeliin</h2>
-          <p style={{color: '#4b5563'}}>Tämä on Coursera-henkinen käyttöliittymä, joka käyttää Varjoliitokaupan musta-valkoista brändäystä. Täältä voidaan myöhemmin hallita varjoliitokursseja ja kaupan tuotteita.</p>
-        </main>
+        {renderMain()}
       </div>
     </div>
-  )
+  );
 }
 
 export default App;

@@ -1,0 +1,96 @@
+.day-page {
+  padding: 30px;
+  text-align: left;
+}
+.day-page h2 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #111827;
+  margin: 0 0 8px;
+}
+.day-page-subtitle {
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin-bottom: 24px;
+}
+.day-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+.day-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 24px;
+  background: #fff;
+  cursor: pointer;
+  transition: box-shadow 0.2s, transform 0.1s;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.day-card:hover:not(.locked) {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+}
+.day-card.locked {
+  opacity: 0.55;
+  cursor: default;
+  background: #f9fafb;
+}
+.day-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.day-number {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.lock-icon, .unlock-icon {
+  font-size: 1rem;
+}
+.day-card h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #111827;
+}
+.day-card p {
+  color: #6b7280;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin: 0;
+}
+.locked-label {
+  font-size: 0.8rem;
+  color: #9ca3af;
+  font-weight: 500;
+}
+.btn-primary {
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  align-self: flex-start;
+}
+.btn-primary:hover { background: #374151; }
+.btn-back {
+  background: none;
+  border: none;
+  color: #6b7280;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+.btn-back:hover { color: #000; }

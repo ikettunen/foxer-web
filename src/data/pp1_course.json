@@ -1,0 +1,182 @@
+{
+  "course": {
+    "id": "pp1",
+    "title": "PP1 — Varjoliitokurssi",
+    "titleEn": "PP1 — Basic Paragliding Course",
+    "description": "Varjoliidon perustutkinto. Kolme lähiopetuspäivää, jonka jälkeen olet valmis itsenäisiin valvottuihin lentoihin.",
+    "days": 3,
+    "hoursPerDay": 8,
+    "locale": "fi"
+  },
+  "days": [
+    {
+      "day": 1,
+      "title": "Maakäsittely",
+      "titleEn": "Ground Handling",
+      "description": "Välineet, aerodynamiikan perusteet ja siiven hallinta maassa.",
+      "preReading": {
+        "id": "pp1-day1-reading",
+        "type": "lesson",
+        "title": "Siippi, valjaat ja aerodynamiikan perusteet",
+        "estimatedReadMinutes": 20,
+        "sections": [
+          {
+            "heading": "Voimat vaakalennossa",
+            "body": "Liitimeen vaikuttaa vaakalennossa kolme voimaa: **painovoima** (alaspäin), **nostovoima** (ylöspäin) ja **vastus** (lentosuuntaa vastaan). Hinauksessa mukaan tulee neljäs voima: hinausvoima.\n\nNostovoima riippuu ilmanopeudesta ja kohtauskulmasta. Kun ilmanopeus kasvaa, nostovoima kasvaa — ja päinvastoin.",
+            "safetyFlag": false
+          },
+          {
+            "heading": "Kolme akselia",
+            "body": "Liidin liikkuu kolmen akselin ympäri:\n- **Poikittaisakseli** → pitch (nenä ylös/alas)\n- **Pituusakseli** → roll (siiven kallistus)\n- **Pystyakseli** → yaw (suunnanmuutos)\n\nJarrulenkeillä ohjataan pääasiassa pituus- ja pystyakselia.",
+            "safetyFlag": false
+          },
+          {
+            "heading": "Ilmanopeus vs. maanopeus",
+            "body": "**Ilmanopeus** on liitimen nopeus suhteessa ilmaan. **Maanopeus** on nopeus suhteessa maahan.\n\nLentoonlähtö ja lasku tehdään aina **vastatuuleen**, koska tarvittava ilmanopeus saavutetaan pienemmällä maanopeudella — lentoonlähtö on turvallisempaa ja tarvittava juoksumatka lyhenee.",
+            "safetyFlag": false
+          },
+          {
+            "heading": "Siippi ja valjaat",
+            "body": "Siippi koostuu kanavista (solut), kantohihnoista (A/B/C/D-sarjat) ja jarrulenkeistä. Tyyppitodistus takaa, että siipi on hyväksytty turvalliseen käyttöön.\n\nValjaat kiinnittävät lentäjän siipeen. Valjaiden on istuttava oikein — liian löysät valjaat voivat vaarantaa hallinnan.",
+            "safetyFlag": false
+          },
+          {
+            "heading": "Varusteet ja huolto",
+            "body": "Pakollinen varustus: **kypärä, jalkineet, käsineet, pelastusvarjo**. Pelastusvarjon on oltava pakattu ja määräaikaishuollettu.\n\n⚠️ Älä koskaan säädä tai korjaa siipeä tai valjaita itse — toimita ne valtuutetulle huoltajalle.",
+            "safetyFlag": true
+          },
+          {
+            "heading": "Säännöt lyhyesti",
+            "body": "Varjoliitoa sääntelee Suomessa **Trafi/OPS M2-9** ja **SIL ry:n** koulutusohjelma. Jokaisella lentopaikalla voi olla omia paikallismääräyksiä — kysy aina ensin.\n\nPP1-oppilas ei saa lentää ilman kouluttajan valvontaa.",
+            "safetyFlag": false
+          }
+        ],
+        "keyPoints": [
+          "Kolme voimaa: painovoima, nostovoima, vastus",
+          "Lentoonlähtö ja lasku aina vastatuuleen",
+          "Tyyppitodistus = siipi on hyväksytty turvalliseen käyttöön",
+          "Pelastusvarjo pakollinen — tarkista ennen jokaista lentopäivää",
+          "Älä huolla siipeä itse"
+        ]
+      },
+      "quiz": {
+        "id": "pp1-day1-quiz",
+        "type": "quiz",
+        "moduleId": "pp1-day1-reading",
+        "locale": "fi",
+        "passMark": 3,
+        "questions": [
+          {
+            "id": "q1",
+            "question": "Mitkä kolme voimaa vaikuttavat liitimeen vaakalennossa?",
+            "answerType": "multiple_choice",
+            "options": [
+              { "id": "a", "text": "Painovoima, nostovoima ja vastus" },
+              { "id": "b", "text": "Painovoima, hinausvoima ja nostovoima" },
+              { "id": "c", "text": "Nostovoima, vastus ja tuulivoima" },
+              { "id": "d", "text": "Painovoima, vastus ja tuulivoima" }
+            ],
+            "correctAnswer": "a",
+            "explanation": "Vaakalennossa vaikuttavat painovoima (alas), nostovoima (ylös) ja vastus (lennon vastaiseen suuntaan). Hinausvoima lisätään vain hinauksessa."
+          },
+          {
+            "id": "q2",
+            "question": "Miksi lentoonlähtö tehdään vastatuuleen?",
+            "answerType": "multiple_choice",
+            "options": [
+              { "id": "a", "text": "Koska säännöt niin määräävät" },
+              { "id": "b", "text": "Tarvittava ilmanopeus saavutetaan pienemmällä maanopeudella" },
+              { "id": "c", "text": "Siippi nousee ylös nopeammin myötätuuleen" },
+              { "id": "d", "text": "Vastatuuli hidastaa lentäjää" }
+            ],
+            "correctAnswer": "b",
+            "explanation": "Vastatuuleen lähdettäessä tarvittava ilmanopeus saavutetaan pienemmällä juoksunopeudella, mikä tekee lentoonlähdöstä turvallisempaa."
+          },
+          {
+            "id": "q3",
+            "question": "Mikä on tyyppitodistus?",
+            "answerType": "multiple_choice",
+            "options": [
+              { "id": "a", "text": "Lentäjän henkilökohtainen lisenssi" },
+              { "id": "b", "text": "Siipimallin hyväksyntätodistus lentokelpoisuusvaatimusten mukaisesti" },
+              { "id": "c", "text": "Huoltotodistus" },
+              { "id": "d", "text": "Vakuutuskirja" }
+            ],
+            "correctAnswer": "b",
+            "explanation": "Tyyppitodistus osoittaa, että siipimalli on testattu ja hyväksytty turvallisuusvaatimusten mukaisesti. Lennä aina tyyppitodistuksen omaavalla siivellä."
+          },
+          {
+            "id": "q4",
+            "question": "Mitä akselia jarrulenkeillä pääasiassa ohjataan?",
+            "answerType": "multiple_choice",
+            "options": [
+              { "id": "a", "text": "Poikittaisakselia" },
+              { "id": "b", "text": "Pituus- ja pystyakselia" },
+              { "id": "c", "text": "Pystyakselia ainoastaan" },
+              { "id": "d", "text": "Kaikkia kolmea akselia tasapuolisesti" }
+            ],
+            "correctAnswer": "b",
+            "explanation": "Jarrulenkit vaikuttavat siiven takareunaan — ne ohjaavat pääasiassa pituusakselia (kallistus) ja pystyakselia (suunnanmuutos)."
+          },
+          {
+            "id": "q5",
+            "question": "Voitko huoltaa tai korjata siipeä itse?",
+            "answerType": "multiple_choice",
+            "options": [
+              { "id": "a", "text": "Kyllä, pienet korjaukset onnistuvat" },
+              { "id": "b", "text": "Ei — toimita aina valtuutetulle huoltajalle" },
+              { "id": "c", "text": "Kyllä, jos olet suorittanut PP2:n" },
+              { "id": "d", "text": "Vain jos kouluttaja on paikalla" }
+            ],
+            "correctAnswer": "b",
+            "explanation": "Siiven tai valjaiden huolto ja korjaus kuuluvat aina valtuutetulle ammattilaiselle. Virheellinen korjaus voi olla hengenvaarallinen."
+          }
+        ]
+      }
+    },
+    {
+      "day": 2,
+      "title": "Ensimmäiset lennot",
+      "titleEn": "First Flights",
+      "description": "Mikrometeorologia, lentopäätöksenteko ja ensimmäiset valvotut lennot.",
+      "preReading": {
+        "id": "pp1-day2-reading",
+        "type": "lesson",
+        "title": "Sää, tuuli ja lentopäätöksenteko",
+        "estimatedReadMinutes": 25,
+        "sections": [],
+        "keyPoints": []
+      },
+      "quiz": {
+        "id": "pp1-day2-quiz",
+        "type": "quiz",
+        "moduleId": "pp1-day2-reading",
+        "locale": "fi",
+        "passMark": 3,
+        "questions": []
+      }
+    },
+    {
+      "day": 3,
+      "title": "Lentotaidot ja turvallisuus",
+      "titleEn": "Flight Skills and Safety",
+      "description": "Kaarrokset, laskeutumistekniikka, turvallisuustaidot ja PP1-koe.",
+      "preReading": {
+        "id": "pp1-day3-reading",
+        "type": "lesson",
+        "title": "Kaarrokset, sakkaus ja turvallinen lasku",
+        "estimatedReadMinutes": 20,
+        "sections": [],
+        "keyPoints": []
+      },
+      "quiz": {
+        "id": "pp1-day3-quiz",
+        "type": "quiz",
+        "moduleId": "pp1-day3-reading",
+        "locale": "fi",
+        "passMark": 3,
+        "questions": []
+      }
+    }
+  ]
+}
