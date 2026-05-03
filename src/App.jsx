@@ -28,23 +28,24 @@ function App() {
   if (!isLoggedIn) {
     return (
       <div className="login-container">
-        <div style={{marginBottom: '20px', textAlign: 'center'}}>
-          <img src="/foxer-web/logo.webp" alt="Logo" style={{width: '80px', borderRadius: '12px'}} />
-          <h2 style={{fontWeight: 800, marginTop: '10px'}}>Foxer WebApp</h2>
+        <div className="login-card">
+          <div className="login-logo-wrap">
+            <img src="/foxer-web/logo.webp" alt="Foxer Logo" className="login-logo" />
+          </div>
+          <h2 className="login-title">Foxer WebApp</h2>
+          <form onSubmit={handleLogin} className="login-form">
+            <div style={{display: 'flex', flexDirection: 'column', gap: '5px'}}>
+              <label style={{fontSize: '0.9rem', fontWeight: 600, color: '#374151'}}>Käyttäjänimi</label>
+              <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+            </div>
+            <div style={{display: 'flex', flexDirection: 'column', gap: '5px'}}>
+              <label style={{fontSize: '0.9rem', fontWeight: 600, color: '#374151'}}>Salasana</label>
+              <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+            </div>
+            <button type="submit" style={{marginTop: '10px'}}>Kirjaudu sisään</button>
+            {error && <p style={{color: '#dc2626', fontSize: '0.9rem', textAlign: 'center', margin: 0}}>{error}</p>}
+          </form>
         </div>
-        <form onSubmit={handleLogin} className="login-form">
-          <div style={{display: 'flex', flexDirection: 'column', gap: '5px'}}>
-            <label style={{fontSize: '0.9rem', fontWeight: 600, color: '#374151'}}>Username</label>
-            <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
-          </div>
-          <div style={{display: 'flex', flexDirection: 'column', gap: '5px'}}>
-            <label style={{fontSize: '0.9rem', fontWeight: 600, color: '#374151'}}>Password</label>
-            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-          </div>
-          <button type="submit" style={{marginTop: '10px'}}>Kirjaudu sisään</button>
-          {error && <p style={{color: '#dc2626', fontSize: '0.9rem', textAlign: 'center', margin: 0}}>{error}</p>}
-        </form>
-        <p style={{color: '#6b7280', fontSize: '0.8rem', marginTop: '20px'}}></p>
       </div>
     );
   }
