@@ -4,6 +4,8 @@ import CoursePage from './pages/CoursePage'
 import DayPage from './pages/DayPage'
 import ReadingPage from './pages/ReadingPage'
 import QuizPage from './pages/QuizPage'
+import MaterialitPage from './pages/MaterialitPage'
+import KayttajatPage from './pages/KayttajatPage'
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -50,20 +52,41 @@ function App() {
     );
   }
 
-  const sidebarItems = ['Dashboard', 'Kurssit', 'Tuotteet', 'Käyttäjät', 'Asetukset'];
+  const sidebarItems = ['Dashboard', 'Kurssit', 'Materiaalit', 'Käyttäjät', 'Asetukset'];
 
   const handleSidebarClick = (item) => {
     setActiveSection(item);
     if (item === 'Kurssit') setNav({ view: 'courses' });
-    else setNav({ view: 'other' });
+    else setNav({ view: item.toLowerCase() });
   };
 
   const renderMain = () => {
-    if (activeSection !== 'Kurssit') {
+    if (activeSection === 'Materiaalit') {
+      return <main className="main-panel"><MaterialitPage /></main>;
+    }
+    if (activeSection === 'Käyttäjät') {
+      return <main className="main-panel"><KayttajatPage /></main>;
+    }
+    if (activeSection === 'Dashboard') {
       return (
         <main className="main-panel">
           <h2>Tervetuloa hallintapaneeliin</h2>
-          <p style={{color: '#4b5563'}}>Tämä on Coursera-henkinen käyttöliittymä, joka käyttää Varjoliitokaupan musta-valkoista brändäystä. Täältä voidaan myöhemmin hallita varjoliitokursseja ja kaupan tuotteita.</p>
+          <p style={{color: '#4b5563'}}>Täältä hallitaan varjoliitokursseja, materiaaleja ja käyttäjiä.</p>
+        </main>
+      );
+    }
+    if (activeSection === 'Asetukset') {
+      return (
+        <main className="main-panel">
+          <h2>Asetukset</h2>
+          <p style={{color: '#4b5563'}}>Tulossa.</p>
+        </main>
+      );
+    }
+    if (activeSection !== 'Kurssit') {
+      return (
+        <main className="main-panel">
+          <h2>{activeSection}</h2>
         </main>
       );
     }
